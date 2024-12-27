@@ -62,11 +62,12 @@ export const signin = async (req, res) => {
     console.log("validation completed");
 
     const user = await UserModel.findByEmailAndPassword(req.body.credentials);
-    //console.log(user);
+    console.log(user);
 
     // Pass the role (0 or 1) to the token generation function
     const token = generateJwtToken(user._id.toString(), user.role);
-
+    console.log(token);
+    
     return res.status(200).json({ token, status: "success" });
   } catch (error) {
     // Check if the error is an instance of our custom ErrorResponse class
