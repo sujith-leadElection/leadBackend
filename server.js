@@ -25,7 +25,7 @@ import AC from "./API/ACWithMandalVillageAllocation";
 import Allotment from './API/ACAllotmentWithEmployee';
 import grievances from './API/Grievances';
 import Employee from './API/EmployeeActions';
-
+import {signup, signin, createemp, getTokeninfo} from './API/Authentication';
 // Application Routes
 lead.use("/auth", Auth);
 lead.use('/ac', AC);
@@ -34,6 +34,10 @@ lead.use('/grievances',grievances);
 lead.use('/employee',Employee);
 
 lead.get("/" , (req, res) => res.json({ message: "Setup success" }));
+lead.post("/auth/signup",signup);
+lead.post("/auth/signin",signin);
+lead.post("/auth/create-emp",createemp);
+lead.post("/auth/getTokeninfo",getTokeninfo);
 
 lead.listen(port, () =>
     ConnectDB()
