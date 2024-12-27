@@ -42,3 +42,5 @@ lead.listen(port, () =>
       console.log("Server is running, but database connection failed.")
     )
 );
+
+module.exports = lead;
