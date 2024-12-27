@@ -8,6 +8,8 @@ const Router = express.Router();
 
 Router.get('/getAll-ac', async (req, res) => {
   try {
+    console.log("getting inside");
+    
     // Fetch all AC records from the database
     const getAllac = await AC.find();
 
