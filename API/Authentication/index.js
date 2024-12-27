@@ -59,7 +59,7 @@ Method    POST
 export const signin = async (req, res) => {
   try {
     await ValidateSignin(req.body.credentials);
-    //console.log("validation completed");
+    console.log("validation completed");
 
     const user = await UserModel.findByEmailAndPassword(req.body.credentials);
     //console.log(user);
