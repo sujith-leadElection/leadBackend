@@ -2,5 +2,5 @@
 import mongoose from "mongoose";
 require("dotenv").config();
 export default async () => {
-  return mongoose.connect(process.env.MONGO_URI, {});
+  return mongoose.connect(process.env.MONGO_URI, {connectTimeoutMS: 50000});
 };
