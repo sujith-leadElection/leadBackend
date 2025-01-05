@@ -43,16 +43,16 @@ router.post('/:employeeId/:category/:role', async (req, res) => {
 
   try {
     // Check for uniqueness of aadharId, phoneNumber, and token
-    const existingRecord = await LetterRequest.findOne({
-      $or: [{ aadharId }, { phoneNumber }],
-    });
+    // const existingRecord = await LetterRequest.findOne({
+    //   $or: [{ aadharId }, { phoneNumber }],
+    // });
 
-    if (existingRecord) {
-      //console.log(existingRecord);
-      return res.status(400).json({
-        message: 'A document with the same aadharId, phoneNumber already exists',
-      });
-    }
+    // if (existingRecord) {
+    //   //console.log(existingRecord);
+    //   return res.status(400).json({
+    //     message: 'A document with the same aadharId, phoneNumber already exists',
+    //   });
+    // }
 
     // Create a new LetterRequest instance
     const letterRequest = new LetterRequest(req.body);
@@ -171,16 +171,16 @@ router.put('/:id', async (req, res) => {
         }
       }
     }
-    const existingRecord = await LetterRequest.findOne({
-      $or: [{ aadharId }, { phoneNumber }],
-    });
+    // const existingRecord = await LetterRequest.findOne({
+    //   $or: [{ aadharId }, { phoneNumber }],
+    // });
 
-    if (existingRecord && existingRecord._id.toString() !== id) {
-      //console.log(existingRecord);
-      return res.status(400).json({
-        message: 'A document with the same aadharId or phoneNumber already exists',
-      });
-    }
+    // if (existingRecord && existingRecord._id.toString() !== id) {
+    //   //console.log(existingRecord);
+    //   return res.status(400).json({
+    //     message: 'A document with the same aadharId or phoneNumber already exists',
+    //   });
+    // }
     const [acname, pcid, , , count] = req.body.token.split('/'); // Extract count from the token
     // Generate the current date in the format YYYY-MM-DD
     // const currentDate = new Date();
